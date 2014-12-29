@@ -1,3 +1,6 @@
+# generated
+Gemfile.lock
+
 # secret
 config/deploy/
 lib/nodes/

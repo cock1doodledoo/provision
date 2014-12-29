@@ -30,7 +30,7 @@ describe file('/etc/zabbix/zabbix_agentd.conf') do
   its(:content) { should match /^Include=\/etc\/zabbix\/zabbix_agentd.d\/$/ }
 end
 
-describe file('/etc/zabbix/zabbix_agentd.d/hostname.conf') do
+describe file('/etc/zabbix/zabbix_agentd.d/base.conf') do
   it { should be_file }
   its(:content) { should match /^Hostname=#{property[:zbx_hostname]}$/ }
   its(:content) { should match /^Server=#{property[:zbx_server]}$/ }
