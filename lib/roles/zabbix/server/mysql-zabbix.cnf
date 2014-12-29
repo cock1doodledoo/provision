@@ -1,0 +1,11 @@
+# mysql configurations for zabbix server
+[client]
+default-character-set   = utf8
+[mysqld]
+character-set-server    = utf8
+innodb_file_per_table
+innodb_buffer_pool_size = 768M
+general_log_file        = /var/log/mysql/mysql.log
+general_log             = 1
+log_slow_queries        = /var/log/mysql/mysql-slow.log
+long_query_time         = 2

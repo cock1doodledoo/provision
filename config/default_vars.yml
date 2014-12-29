@@ -24,3 +24,6 @@ ruby_version: 2.2.0
 # for zabbix
 zbx_hostname: hostname_must_override
 zbx_server: zabbix_server
+zbx_user: zabbix
+zbx_pass: zabbix
+zbx_db: zabbix
