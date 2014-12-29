@@ -7,6 +7,9 @@ ntp_servers:
  - 1.ubuntu.pool.ntp.org
  - 2.ubuntu.pool.ntp.org
  - 3.ubuntu.pool.ntp.org
+
+# for snmp
+snmp_enable_trapd: false
 # for git
 git_user_name: git
 git_user_email: git@localhost
