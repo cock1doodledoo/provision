@@ -10,3 +10,6 @@ ntp_servers:
 # for git
 git_user_name: git
 git_user_email: git@localhost
+
+# for ruby
+ruby_version: 2.2.0
