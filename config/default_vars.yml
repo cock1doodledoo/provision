@@ -1,5 +1,8 @@
 # default variables
 
+# for mysql
+mysql_listen_port: 3306
+mysql_root_pass: ''
 
 # for ntp
 ntp_servers:
@@ -10,6 +13,7 @@ ntp_servers:
 
 # for snmp
 snmp_enable_trapd: false
+
 # for git
 git_user_name: git
 git_user_email: git@localhost
