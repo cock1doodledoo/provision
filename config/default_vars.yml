@@ -1,0 +1,5 @@
+# default variables
+
+# for git
+git_user_name: git
+git_user_email: git@localhost
