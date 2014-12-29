@@ -13,6 +13,17 @@ describe port(123) do
   it { should be_listening }
 end
 
+# if property[:ntp_servers] contains hostname,
+# replace to IPv4 address
+rslv = Resolv::DNS.new
+property[:ntp_servers].map! do |svr|
+  if Resolv::IPv4::Regex.match(svr)
+    svr
+  else
+    rslv.getaddress(svr).to_s
+  end
+end
+
 describe command('ntpq -np') do
   property[:ntp_servers].each do |server|
     its(:stdout) { should match /^[\s\+\#\*o]#{server}/ }
