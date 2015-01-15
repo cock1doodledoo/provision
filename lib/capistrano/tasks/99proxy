@@ -1,0 +1,3 @@
+Acquire::ftp::proxy "ftp://localhost:8080/";
+Acquire::http::proxy "http://localhost:8080/";
+Acquire::https::proxy "https://localhost:8080/";
