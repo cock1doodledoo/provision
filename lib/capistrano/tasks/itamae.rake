@@ -4,7 +4,7 @@ namespace :itamae do
   task :run do
     on roles(:all) do |host|
       run_locally do
-        execute "itamae ssh -h #{host} -y /tmp/#{host}.yml /tmp/#{host}.rb"
+        execute "itamae ssh -h #{host.hostname} -u #{host.user} -y /tmp/#{host.hostname}.yml /tmp/#{host.hostname}.rb"
       end
     end
   end
@@ -14,9 +14,9 @@ namespace :itamae do
     on roles(:all) do |host|
       recipes = []
       host.roles.each {|r| recipes << "lib/roles/#{r}/recipe.rb"}
-      recipes << "lib/nodes/#{host}/recipe.rb"
+      recipes << "lib/nodes/#{host.hostname}/recipe.rb"
       recipes.keep_if {|f| File.exist?(f) }
-      open("/tmp/#{host}.rb", 'w') do |f|
+      open("/tmp/#{host.hostname}.rb", 'w') do |f|
         recipes.each do |r|
           f.puts "include_recipe \'#{File.expand_path(r)}\'"
         end
