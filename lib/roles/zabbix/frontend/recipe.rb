@@ -21,7 +21,7 @@ template '/etc/zabbix/web/zabbix.conf.php' do
 end
 
 execute 'configure hosts' do
-  command "sed -i 's/^127\.0\.1\.1.*$/127.0.1.1 #{node[:zbx_server]} #{node[:zbx_server].split(".").first}/g' /etc/hosts"
+  command "sed -i \'s/^127\.0\.1\.1.*$/127.0.1.1 #{node[:zbx_hostname]} #{node[:zbx_hostname].split(".").first}/g\' /etc/hosts"
 end
 
 remote_file '/var/www/html/phpinfo.php' do
