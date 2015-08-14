@@ -21,8 +21,8 @@ describe file('/etc/zabbix/apache.conf') do
   it { should be_file }
   it { should be_owned_by 'root' }
   it { should be_readable.by 'others' }
-  its(:content) { should match /Alias \/zabbix \/usr\/share\/zabbix/ }
-  it { should contain(/php_value date.timezone Asia\/Tokyo/).from(/<Directory "\/usr\/share\/zabbix">/).to(/<\/Directory>/) }
+  its(:content) { should match %r{Alias /zabbix /usr/share/zabbix} }
+  it { should contain(%r{php_value date.timezone Asia/Tokyo}).from(%r{<Directory "/usr/share/zabbix">}).to(%r{</Directory>}) }
 end
 
 describe file('/etc/zabbix/web/zabbix.conf.php') do
