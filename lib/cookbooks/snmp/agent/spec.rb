@@ -20,5 +20,5 @@ if property[:snmp_enable_trapd]
 end
 
 describe command('snmpd --version') do
-  its(:stdout) { should match /^NET-SNMP version:  5.7.2$/ }
+  its(:stdout) { should match(/NET-SNMP version:  5.7.2/) }
 end

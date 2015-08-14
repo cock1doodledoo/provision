@@ -1,9 +1,14 @@
+node.validate! do
+  {
+    snmp_enable_trapd: boolean
+  }
+end
+
 package 'snmpd'
 
 service 'snmpd'
 
 remote_file '/etc/snmp/snmpd.conf' do
-  source 'snmpd.conf'
   owner 'root'
   group 'root'
   mode '644'
