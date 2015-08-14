@@ -4,7 +4,8 @@ namespace :itamae do
   task :run do
     on roles(:all) do |host|
       run_locally do
-        execute "itamae ssh -h #{host.hostname} -u #{host.user} -y /tmp/#{host.hostname}.yml /tmp/#{host.hostname}.rb"
+        execute "itamae ssh -h #{host.hostname} -u #{host.user} "\
+                "-y /tmp/#{host.hostname}.yml /tmp/#{host.hostname}.rb"
       end
     end
   end
@@ -31,7 +32,7 @@ namespace :itamae do
     on roles(:all) do |h|
       run_locally do
         f = "/tmp/#{h.hostname}.rb"
-        execute :rm, f if File.exists?(f)
+        execute :rm, f if File.exist?(f)
       end
     end
   end
