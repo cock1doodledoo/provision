@@ -1,25 +1,17 @@
-ntp recipe for itamae
+ntp recipe
 ===
 - install ntp package
 - set the ntp servers from the attributes
 
 ## description
-This recipe is to install ntp, by run on [itamae](https://github.com/ryotarai/itamae "itamae").
+[itamae](https://github.com/itamae-kitchen/itamae "itamae") recipe to install ntp package.
 after installation, set the ntp servers from the attributes **ntp_servers** and ntpd restart if necessary.
+ubuntu14.04 is expected.
 
 ## attributes
-- **ntp_servers**: array of ntp servers (IP address or FQDN)
-
-for examples (yaml)
+for example
 ``` yaml
-ntp_servers:
-  - ntp-server1
-  - ntp-server2
-  - ntp-server3
-```
-by default
-``` yaml
-ntp_servers:
+ntp_servers: # array of ntp servers (IP address or FQDN)
   - 0.ubuntu.pool.ntp.org
   - 1.ubuntu.pool.ntp.org
   - 2.ubuntu.pool.ntp.org

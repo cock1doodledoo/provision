@@ -13,6 +13,10 @@ describe port(123) do
   it { should be_listening }
 end
 
+describe command('ntpd --version') do
+  its(:stdout) { should match(/ntpd 4.2.6p5/) }
+end
+
 # if property[:ntp_servers] contains hostname,
 # replace to IPv4 address
 rslv = Resolv::DNS.new
@@ -26,10 +30,6 @@ end
 
 describe command('ntpq -np') do
   property[:ntp_servers].each do |server|
-    its(:stdout) { should match /^[\s\+\#\*o]#{server}/ }
+    its(:stdout) { should match(/^[\s\+\#\*o]#{server}/) }
   end
-end
-
-describe command('ntpd --version') do
-  its(:stdout) { should match /^ntpd 4.2.6/ }
 end

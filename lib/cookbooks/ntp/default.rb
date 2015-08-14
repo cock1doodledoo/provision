@@ -1,9 +1,14 @@
+node.validate! do
+  {
+    ntp_servers: array_of(string)
+  }
+end
+
 package 'ntp'
 
 service 'ntp'
 
 template '/etc/ntp.conf' do
-  source 'ntp.conf.erb'
   user 'root'
   owner 'root'
   group 'root'
