@@ -1,9 +1,10 @@
-squid recipe for itamae
+squid recipe
 ===
 - install squid3 package
 
 ## description
-This recipe is to install squid3 proxy server, by run on [itamae](https://github.com/ryotarai/itamae "itamae").
+[itamae](https://github.com/itamae-kitchen/itamae "itamae") recipe to install squid3 proxy server.
+ubuntu14.04 is expected.
 
 **CAUTION:** This recipe configured squid3 allowing access form any network.
 

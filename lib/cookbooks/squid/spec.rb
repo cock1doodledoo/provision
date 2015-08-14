@@ -14,5 +14,5 @@ describe port(3128) do
 end
 
 describe command('squid3 -v') do
-  its(:stdout) { should match /^Squid Cache: Version 3.3.8$/ }
+  its(:stdout) { should match(/Squid Cache: Version 3.3.8/) }
 end
