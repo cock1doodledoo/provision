@@ -14,24 +14,24 @@ describe service('zabbix-agent') do
 end
 
 describe command('zabbix_agent --version') do
-  its(:stdout) { should match /^Zabbix agent v2.2.8/ }
+  its(:stdout) { should match(/^Zabbix agent v2.2.9/) }
 end
 
 describe command('zabbix_agentd --version') do
-  its(:stdout) { should match /^Zabbix Agent \(daemon\) v2.2.8/ }
+  its(:stdout) { should match(/^Zabbix Agent \(daemon\) v2.2.9/) }
 end
 
 describe command('zabbix_sender --version') do
-  its(:stdout) { should match /^Zabbix Sender v2.2.8/ }
+  its(:stdout) { should match(/^Zabbix Sender v2.2.9/) }
 end
 
 describe file('/etc/zabbix/zabbix_agentd.conf') do
   it { should be_file }
-  its(:content) { should match /^Include=\/etc\/zabbix\/zabbix_agentd.d\/$/ }
+  its(:content) { should match %r{^Include=/etc/zabbix/zabbix_agentd.d/$} }
 end
 
 describe file('/etc/zabbix/zabbix_agentd.d/base.conf') do
   it { should be_file }
-  its(:content) { should match /^Hostname=#{property[:zbx_hostname]}$/ }
-  its(:content) { should match /^Server=#{property[:zbx_server]}$/ }
+  its(:content) { should match(/^Hostname=#{property[:zabbix_hostname]}$/) }
+  its(:content) { should match(/^Server=#{property[:zabbix_server]}$/) }
 end
