@@ -9,7 +9,7 @@ git_email: git@localhost
 
 # for mysql
 mysql_listen_port: 3306
-mysql_root_pass: ''
+mysql_root_password: ''
 
 # for ntp
 ntp_servers:
