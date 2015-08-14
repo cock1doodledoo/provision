@@ -1,23 +1,21 @@
-ruby recipe for itamae
+ruby recipe
 ===
-- install rbenv with some plugins and ruby
+- install rbenv
+- install rbenv-plugins
+- install ruby on rbenv
 
 ## description
-This recipe is to install rbenv, rbenv-plugins and ruby, by run on [itamae](https://github.com/ryotarai/itamae "itamae").
+[itamae](https://github.com/itamae-kitchen/itamae "itamae") recipe to install rbenv, rbenv-plugins and ruby.
 - install [rbenv](https://github.com/sstephenson/rbenv.git "rbenv") to user's home directory using git.
 - install [ruby-build](https://github.com/sstephenson/ruby-build.git) and [default-gems](https://github.com/sstephenson/rbenv-default-gems.git "default-gems"), these are rbenv plugins, to installed rbenv using git too.
 - install ruby which version is specified by **ruby_version** using ruby-build.
+ubuntu14.04 is expected.
 
 ## attributes
-- **ruby_version**: ruby version that you want to use
-
-for examples (yaml)
+for example
 ``` yaml
-ruby_version: 2.1.3
-```
-by default
-``` yaml
-ruby_version: 2.2.0
+ruby:
+- version: 2.2.2 # ruby version that you want to use
 ```
 
 ## depend on

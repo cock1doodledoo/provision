@@ -18,11 +18,11 @@ ntp_servers:
   - 2.ubuntu.pool.ntp.org
   - 3.ubuntu.pool.ntp.org
 
+# for ruby
+ruby_version: 2.2.2
+
 # for snmp
 snmp_enable_trapd: false
-
-# for ruby
-ruby_version: 2.2.0
 
 # for zabbix
 zbx_hostname: hostname_must_override
