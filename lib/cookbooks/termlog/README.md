@@ -1,10 +1,11 @@
-terminal-logging recipe for itamae
+terminal-logging recipe
 ===
 - install terminal-logging script
 
 ## description
-This recipe is to install terminal-logging script, by run on [itamae](https://github.com/ryotarai/itamae "itamae").
+[itamae](https://github.com/itamae-kitchen/itamae "itamae") recipe to install terminal-logging script.
 terminal-logging.sh will record command-line automatically, if you logged in bash.
+ubuntu14.04 is expected.
 
 ## attributes
 - nothing
