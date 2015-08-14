@@ -3,6 +3,10 @@
 # for apt-get
 apt_upgrade: false
 
+# for git
+git_user: git
+git_email: git@localhost
+
 # for mysql
 mysql_listen_port: 3306
 mysql_root_pass: ''
@@ -16,10 +20,6 @@ ntp_servers:
 
 # for snmp
 snmp_enable_trapd: false
-
-# for git
-git_user_name: git
-git_user_email: git@localhost
 
 # for ruby
 ruby_version: 2.2.0
