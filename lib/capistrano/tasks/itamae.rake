@@ -1,10 +1,21 @@
-namespace :itamae do
+require 'yaml'
 
+namespace :itamae do
   desc 'run itamae'
   task :run do
     on roles(:all) do |host|
       run_locally do
         execute "itamae ssh -h #{host.hostname} -u #{host.user} "\
+                "-y /tmp/#{host.hostname}.yml /tmp/#{host.hostname}.rb"
+      end
+    end
+  end
+
+  desc 'dry-run itamae'
+  task :dry_run do
+    on roles(:all) do |host|
+      run_locally do
+        execute "itamae ssh --dry-run -h #{host.hostname} -u #{host.user} "\
                 "-y /tmp/#{host.hostname}.yml /tmp/#{host.hostname}.rb"
       end
     end
@@ -39,5 +50,6 @@ namespace :itamae do
 
   before :run, :'vars:export'
   before :run, :create_recipe
-
+  before :dry_run, :'vars:export'
+  before :dry_run, :create_recipe
 end
