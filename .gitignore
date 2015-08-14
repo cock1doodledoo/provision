@@ -5,3 +5,4 @@ Gemfile.lock
 config/deploy/
 lib/nodes/
 lib/capistrano/private_tasks/
+lib/roles/

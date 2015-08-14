@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'capistrano'
+gem 'capistrano', '< 3.4.0'
 gem 'itamae'
 gem 'serverspec'
