@@ -12,10 +12,12 @@ namespace :itamae do
   desc 'create recipe for itamae'
   task :create_recipe do
     on roles(:all) do |host|
-      recipes = []
-      host.roles.each {|r| recipes << "lib/roles/#{r}/recipe.rb"}
-      recipes << "lib/nodes/#{host.hostname}/recipe.rb"
-      recipes.keep_if {|f| File.exist?(f) }
+      recipes = host.roles.map do |r|
+        YAML.load_file("lib/roles/#{r}.yml")['cookbooks']
+      end.flatten.uniq
+      recipes.map! { |b| "lib/cookbooks/#{b}/default.rb" }
+      recipes << "lib/nodes/#{host.hostname}/default.rb"
+      recipes.keep_if { |f| File.exist?(f) }
       open("/tmp/#{host.hostname}.rb", 'w') do |f|
         recipes.each do |r|
           f.puts "include_recipe \'#{File.expand_path(r)}\'"
